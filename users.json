@@ -1,0 +1,65 @@
+[
+  {
+    "id": "1776935172611",
+    "name": "Aditi",
+    "roll": "245",
+    "dept": "CSE",
+    "phone": "984566523",
+    "password": "$2b$10$J3VxBcO2TheFMPwiSdq9p.nXT9VB5idXHArB08msqJ293CebT36y2",
+    "role": "student"
+  },
+  {
+    "id": "1776935245034",
+    "name": "ssssssssssss",
+    "roll": "245",
+    "dept": "library",
+    "phone": "347843275",
+    "password": "$2b$10$nJqExcpN3Xqn.l.xlU2M3.5rtxCpBu.xFPTKZeIH/8MiHDRfSn3Ki",
+    "role": "admin"
+  },
+  {
+    "id": "1776935273470",
+    "name": null,
+    "roll": "242",
+    "dept": null,
+    "phone": null,
+    "password": "$2b$10$uLfFSlZ3dwFvIsDDUpyVEeoo4nUNMZgYgOcq7t6m3HDFdJRQPi8NS",
+    "role": "admin"
+  },
+  {
+    "id": "1776935363572",
+    "name": "aditi",
+    "roll": "245",
+    "dept": "cse",
+    "phone": "a",
+    "password": "$2b$10$mHpJoKOimbXcO1P4F8zzU.2Tkw1.h33WKJGHn.v6UVfRh/81OQ.Cu",
+    "role": "student"
+  },
+  {
+    "id": "1777215460081",
+    "name": "Priti",
+    "roll": "1234",
+    "dept": "cse",
+    "phone": "1234567890",
+    "password": "$2b$10$iSlotI4Denzv.OSNnYPLQ.h7UfzdZ1WHyTaFivTG11DIiz3nk6IBK",
+    "role": "student"
+  },
+  {
+    "id": "1777215552548",
+    "name": "admin",
+    "roll": "admin",
+    "dept": "MANAGEMENT",
+    "phone": "1234567890",
+    "password": "$2b$10$GvO2.yoJ6pWYlcDcvuK1geE9TuwzEf.K9bF2pome0rVzrTS/ozmfS",
+    "role": "admin"
+  },
+  {
+    "id": "1779221200559",
+    "name": "Prachi Priya",
+    "roll": "NIT/2023/1745",
+    "dept": "CSE",
+    "phone": "9508309608",
+    "password": "$2b$10$Z9vwhsb1CXd9LzpHP5ul1.7L6TD9/HC/gEYypUhuPytp/wggeshti",
+    "role": "student"
+  }
+]

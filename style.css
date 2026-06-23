@@ -1,0 +1,546 @@
+/* GLOBAL */
+
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #020617, #0f172a);
+    color: white;
+}
+
+canvas {
+    max-height: 300px !important;
+}
+
+.badge {
+    background: red;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 50%;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #111;
+    padding: 20px;
+    border-radius: 12px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/* GLASS */
+
+.glass {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+
+/* DASHBOARD */
+
+.dashboard {
+    display: flex;
+}
+
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* NAV BUTTON */
+
+.nav-btn {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(5px);
+}
+
+.nav-btn.active {
+    background: linear-gradient(45deg, #3b82f6, #9333ea);
+}
+
+
+/* MAIN */
+
+.main {
+    flex: 1;
+    padding: 25px;
+}
+
+
+/* TOPBAR */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* GRID */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+
+
+/* CARD */
+
+.card {
+    padding: 15px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+}
+
+
+/* FORM */
+
+.form input {
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+/* BUTTON */
+
+button {
+    padding: 10px 15px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background: linear-gradient(45deg, #3b82f6, #9333ea);
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.08);
+}
+
+
+/* TABLE */
+
+table {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+
+/* INPUT */
+
+input {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+/* LOADER */
+
+#loader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: #020617;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    z-index: 999;
+}
+
+
+/* TOAST */
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #22c55e;
+    padding: 12px;
+    border-radius: 10px;
+    animation: slide 0.4s ease;
+}
+
+@keyframes slide {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+
+/* MOBILE */
+
+@media(max-width:768px) {
+    .dashboard {
+        flex-direction: column;
+    }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+    }
+    .nav-btn {
+        flex: 1;
+        font-size: 12px;
+    }
+}
+
+
+/* LOGIN BODY */
+
+.login-body {
+    margin: 0;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle at top, #0f172a, #020617);
+}
+
+
+/* PARTICLES */
+
+#particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+
+/* LOGIN CARD */
+
+.login-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    padding: 30px;
+    text-align: center;
+    z-index: 2;
+    border-radius: 20px;
+    backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+}
+
+
+/* LOGO */
+
+.logo {
+    margin-bottom: 5px;
+}
+
+
+/* TAGLINE */
+
+.tagline {
+    font-size: 13px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+
+/* ROLE SELECT */
+
+.role-select {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.role-select button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.role-select button.active {
+    background: linear-gradient(45deg, #3b82f6, #9333ea);
+}
+
+
+/* INPUT */
+
+.login-card input {
+    width: 100%;
+    margin: 8px 0;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+/* LOGIN BUTTON */
+
+.login-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, #3b82f6, #9333ea);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.6);
+}
+
+
+/* LOGIN PAGE */
+
+.login-body {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(270deg, #0f172a, #1e3a8a, #9333ea);
+    background-size: 600% 600%;
+    animation: gradientMove 12s ease infinite;
+}
+
+
+/* ANIMATED GRADIENT */
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0%
+    }
+    50% {
+        background-position: 100%
+    }
+    100% {
+        background-position: 0%
+    }
+}
+
+
+/* CENTER */
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* GLASS CARD */
+
+.login-card {
+    width: 350px;
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(25px);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+
+/* LOGO */
+
+.logo {
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+
+/* ROLE TOGGLE */
+
+.role-toggle {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.role-toggle button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.role-toggle button.active {
+    background: linear-gradient(90deg, #3b82f6, #9333ea);
+}
+
+
+/* INPUT */
+
+.input-group input {
+    width: 100%;
+    margin: 8px 0;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+
+/* BUTTON */
+
+.login-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(90deg, #3b82f6, #9333ea);
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    transform: scale(1.05);
+}
+
+
+/* PARTICLES */
+
+.particles {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.particles span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    animation: float linear infinite;
+}
+
+/* ☀️ LIGHT MODE */
+body.light {
+    background: #f1f5f9;
+    color: #0f172a;
+}
+
+body.light .sidebar,
+body.light .card,
+body.light .glass {
+    background: rgba(255, 255, 255, 0.95);
+    color: #0f172a;
+}
+
+body.light input {
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+}
+
+body.light button {
+    background: linear-gradient(45deg, #3b82f6, #9333ea);
+    color: #ffffff;
+}
+
+body.light table {
+    background: white;
+    color: black;
+}
+
+/* ☀️ LIGHT MODE - MODAL FIX */
+body.light .modal-content {
+    background: #ffffff;
+    color: #0f172a;
+}
+
+body.light .modal input {
+    background: #ffffff;
+    color: #0f172a;
+    border: 1px solid #cbd5e1;
+}
+
+body.light .modal button {
+    background: linear-gradient(45deg, #3b82f6, #9333ea);
+    color: #ffffff;
+}
+
+@keyframes float {
+    from {
+        transform: translateY(100vh);
+    }
+    to {
+        transform: translateY(-10vh);
+    }
+}

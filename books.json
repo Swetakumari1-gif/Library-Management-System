@@ -1,0 +1,109 @@
+[
+  {
+    "id": "1776935318979",
+    "title": "The C Programming Language",
+    "author": "Brian W. Kernighan, Dennis M. Ritchie",
+    "dept": "CSE",
+    "qty": 12,
+    "issued": 0,
+    "issuedTo": []
+  },
+  {
+    "id": "1776935662474",
+    "title": "Introduction to Algorithms",
+    "author": "Thomas H. Cormen",
+    "dept": "cse",
+    "qty": 10,
+    "issued": 2,
+    "issuedTo": [
+      {
+        "name": "ADITI SHAW",
+        "roll": "245",
+        "dept": "cse",
+        "role": "student"
+      }
+    ]
+  },
+  {
+    "id": "1777126252957",
+    "title": "Object-Oriented Programming with C++",
+    "author": "E. Balagurusamy",
+    "dept": "CSE/IT",
+    "qty": 10,
+    "issued": 0,
+    "issuedTo": []
+  },
+  {
+    "id": "1777126304332",
+    "title": "Database System Concepts",
+    "author": "Abraham Silberschatz, Henry F. Korth, S. Sudarshan",
+    "dept": "CSE/IT",
+    "qty": 15,
+    "issued": 1,
+    "issuedTo": [
+      {
+        "id": "1777132824479",
+        "name": "Priti",
+        "roll": "1234",
+        "dept": "CSE",
+        "password": "$2b$10$CvJpZdJIiE38ws7QM4xxZejhrOL6u6rYCE0CfUKqWOZfA3ni4hVLC",
+        "role": "student",
+        "issuedAt": 1777217662582
+      }
+    ]
+  },
+  {
+    "id": "1777126349357",
+    "title": "Modern Operating Systems",
+    "author": "Andrew S. Tanenbaum",
+    "dept": "CSE/IT",
+    "qty": 12,
+    "issued": 0,
+    "issuedTo": []
+  },
+  {
+    "id": "1777126382589",
+    "title": "Data Communications and Networking",
+    "author": "Behrouz A. Forouzan",
+    "dept": "CSE/IT",
+    "qty": 8,
+    "issued": 0,
+    "issuedTo": []
+  },
+  {
+    "id": "1777126412717",
+    "title": "Introduction to the Theory of Computation",
+    "author": "Michael Sipser",
+    "dept": "CSE/IT",
+    "qty": 5,
+    "issued": 0,
+    "issuedTo": []
+  },
+  {
+    "id": "1777126778692",
+    "title": "Software Engineering",
+    "author": "Ian Sommerville",
+    "dept": "CSE/IT",
+    "qty": 10,
+    "issued": 0,
+    "issuedTo": []
+  },
+  {
+    "id": "1777126820623",
+    "title": "Computer Organization and Design",
+    "author": "David A. Patterson, John L. Hennessy",
+    "dept": "CSE/IT",
+    "qty": 8,
+    "issued": 0,
+    "issuedTo": []
+  },
+  {
+    "id": "1777126861503",
+    "title": "Artificial Intelligence: A Modern Approach",
+    "author": "Stuart Russell, Peter Norvig",
+    "dept": "CSE/IT",
+    "qty": 10,
+    "issued": 0,
+    "issuedTo": []
+  }
+]

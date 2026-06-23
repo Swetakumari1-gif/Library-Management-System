@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Library Access</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="login-body">
+
+    <!-- PARTICLES -->
+    <div class="particles"></div>
+
+    <!-- MAIN CARD -->
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <h1 class="logo">📚 LibraryRkives</h1>
+            <p class="subtitle">Access your digital library</p>
+
+            <!-- ROLE SWITCH -->
+            <div class="role-toggle">
+                <button onclick="setRole('student')" id="studentBtn" class="active">Student</button>
+                <button onclick="setRole('admin')" id="adminBtn">Admin</button>
+            </div>
+
+            <!-- INPUTS -->
+            <div class="input-group">
+                <input id="name" placeholder="Full Name">
+                
+                <div id="studentFields">
+                    <input id="roll" placeholder="ID Number">
+                    <input id="dept" placeholder="Department (CSE / IT)">
+                    <input id="password" type="password" placeholder="Password">
+                </div>
+
+                <input id="adminPassword" type="password" placeholder="Admin Password" style="display: none;">
+            </div>
+
+            <!-- BUTTON -->
+            <button class="login-btn" onclick="login()">Enter System →</button>
+
+            <p class="subtitle" style="color: rgba(255, 255, 255, 0.7); margin-top: 20px;">
+                New user? <a href="register.html" style="color: white; font-weight: 500; text-decoration: underline;">Create an account</a>
+            </p>
+
+        </div>
+
+    </div>
+
+    <script>
+        let role = "student";
+
+        function setRole(r) {
+            role = r;
+
+            const studentBtn = document.getElementById("studentBtn");
+            const adminBtn = document.getElementById("adminBtn");
+            const studentFields = document.getElementById("studentFields");
+            const adminPassField = document.getElementById("adminPassword");
+
+            studentBtn.classList.remove("active");
+            adminBtn.classList.remove("active");
+
+            if (r === "student") {
+                studentBtn.classList.add("active");
+                studentFields.style.display = "block";   // Show ID and Dept
+                adminPassField.style.display = "none";    // Hide Password
+            } else {
+                adminBtn.classList.add("active");
+                studentFields.style.display = "none";    // Hide ID and Dept
+                adminPassField.style.display = "block";   // Show Password
+            }
+        }
+
+        async function login() {
+            const nameValue = document.getElementById("name").value.trim();
+            let rollValue, passwordValue;
+
+            if (role === "admin") {
+                // For Admin: use Name as the Roll identifier and the Password field
+                rollValue = nameValue; 
+                passwordValue = document.getElementById("adminPassword").value.trim();
+            } else {
+                // For Student: use ID Number and Dept as password
+                rollValue = document.getElementById("roll").value.trim();
+                passwordValue = document.getElementById("password").value.trim();
+            }
+
+            try {
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        roll: rollValue, 
+                        password: passwordValue,
+                        role: role 
+                    })
+                });
+
+                if (response.ok) {
+                    const userData = await response.json();
+                    sessionStorage.setItem("user", JSON.stringify(userData));
+                    window.location.href = (userData.role === "admin") ? "admin.html" : "student.html";
+                } else {
+                    const errorText = await response.text();
+                    alert("Login Failed: " + errorText);
+                }
+            } catch (err) {
+                alert("Server Error");
+            }
+        }
+
+        // 🔥 PARTICLES GENERATOR
+        const particles = document.querySelector(".particles");
+
+        for (let i = 0; i < 40; i++) {
+            let p = document.createElement("span");
+            p.style.left = Math.random() * 100 + "vw";
+            p.style.animationDuration = (Math.random() * 5 + 5) + "s";
+            p.style.opacity = Math.random();
+            particles.appendChild(p);
+        }
+    </script>
+
+</body>
+
+</html>

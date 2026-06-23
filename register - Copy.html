@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LibraryOS - Register</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-body">
+    <div class="login-container">
+        <div class="login-card">
+            <h1 class="logo">📚 Join LibraryOS</h1>
+            <p class="subtitle">Create your account</p>
+
+            <div class="role-toggle">
+                <button onclick="setRole('student')" id="studentBtn" class="active">Student</button>
+                <button onclick="setRole('admin')" id="adminBtn">Admin</button>
+            </div>
+
+            <div class="input-group">
+                <input id="regName" placeholder="Full Name">
+                
+                <div id="studentOnlyFields">
+                    <input id="regRoll" placeholder="ID / Roll Number">
+                    <input id="regDept" placeholder="Department (e.g. CSE)">
+                </div>
+                
+                <input id="regPhone" placeholder="Phone Number">
+                <input id="regPassword" type="password" placeholder="Create Password">
+            </div>
+
+            <button class="login-btn" onclick="register()">Register Account →</button>
+            <p class="subtitle" style="color: rgba(255, 255, 255, 0.7); margin-top: 15px;">
+                Already have an account? <a href="login.html" style="color: white; font-weight: 500; text-decoration: underline;">Login here</a>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        let selectedRole = "student";
+
+        function setRole(r) {
+            selectedRole = r;
+            
+            // UI Update for buttons
+            document.getElementById("studentBtn").classList.toggle("active", r === 'student');
+            document.getElementById("adminBtn").classList.toggle("active", r === 'admin');
+
+            // Hide or Show fields
+            const extraFields = document.getElementById("studentOnlyFields");
+            if (r === "admin") {
+                extraFields.style.display = "none";
+            } else {
+                extraFields.style.display = "block";
+            }
+        }
+
+        async function register() {
+            const isStudent = (selectedRole === "student");
+    
+            const userData = {
+                name: document.getElementById("regName").value.trim(),
+                roll: isStudent ? document.getElementById("regRoll").value.trim() : document.getElementById("regName").value.trim(),
+                dept: isStudent ? document.getElementById("regDept").value.trim() : "MANAGEMENT",
+                phone: document.getElementById("regPhone").value.trim(),
+                password: document.getElementById("regPassword").value.trim(),
+                role: selectedRole
+            };
+
+            // Validation logic
+            if (!userData.name || !userData.phone || !userData.password) {
+                alert("Please fill in the required fields.");
+                return;
+            }
+            
+            if (isStudent && (!document.getElementById("regRoll").value || !document.getElementById("regDept").value)) {
+                alert("Students must provide ID and Department.");
+                return;
+            }
+
+            try {
+                const response = await fetch('/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(userData)
+                });
+
+                if (response.ok) {
+                    alert("Registration Successful! Redirecting to login...");
+                    window.location.href = "login.html";
+                } else {
+                    alert("Registration failed. Please try again.");
+                }
+            } catch (err) {
+                console.error(err);
+                alert("Server error. Check if node server.js is running.");
+            }
+        }
+    </script>
+</body>
+</html>

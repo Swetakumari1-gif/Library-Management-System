@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        const storeduser = JSON.parse(sessionStorage.getItem("user"));
+        if (!storeduser) {
+            window.location.href = "login.html";
+        }
+        // Optional: Prevent students from accessing admin.html
+        if (window.location.pathname.includes("admin.html") && user.role !== "admin") {
+            window.location.href = "student.html";
+        }
+    </script>
+</head>
+
+<body>
+
+    <div id="loader">Loading...</div>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar glass">
+            <h2>🎓 Student</h2>
+
+            <button onclick="showSection('available', this)" class="nav-btn active">📚 Available</button>
+            <button onclick="showSection('my', this)" class="nav-btn">📖 My Books</button>
+            <button onclick="showSection('req', this)" class="nav-btn">📩 Requests</button>
+
+            <div class="bottom">
+                <button onclick="toggleDark()">🌙</button>
+                <button onclick="logout()">🚪 Logout</button>
+            </div>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <!-- AVAILABLE -->
+            <div id="available" class="section">
+                <div class="topbar">
+                    <h2>Available Books</h2>
+                    <input id="search" placeholder="🔍 Search books..." onkeyup="loadBooks()">
+                </div>
+
+                <div id="books" class="grid"></div>
+            </div>
+
+            <!-- MY BOOKS -->
+            <div id="my" class="section" style="display:none">
+                <h2>My Books</h2>
+                <div id="myBooks" class="grid"></div>
+            </div>
+
+            <!-- REQUEST STATUS -->
+            <div id="req" class="section" style="display:none">
+                <h2>📩 My Requests</h2>
+                <div id="requests" class="grid"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="student.js"></script>
+</body>
+
+</html>

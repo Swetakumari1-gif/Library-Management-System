@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        (function() {
+            const userData = sessionStorage.getItem("user");
+            if (!userData) {
+                // No user data found? Kick them back to login
+                alert("Please login to access this page.");
+                window.location.href = "login.html";
+            }
+        })();
+    </script>
+</head>
+
+<body>
+
+    <div id="loader">Loading...</div>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <div class="sidebar glass">
+            <h2>👨‍💼 Admin</h2>
+
+            <button onclick="showSection('add')" class="nav-btn active"> Dahboard</button>
+            <button onclick="showSection('requests')" class="nav-btn">📩 Requests</button>
+            <button onclick="showSection('issued')" class="nav-btn">📊 Issued</button>
+            <button onclick="showSection('students')" class="nav-btn">👥 Students</button>
+
+            <div class="bottom">
+                <button onclick="toggleDark()">🌙</button>
+                <button onclick="logout()">🚪 Logout</button>
+            </div>
+        </div>
+
+        <!-- MAIN -->
+        <div class="main">
+
+            <!-- STATS -->
+            <div class="card">
+                <h2>📊 Library Stats</h2>
+                <canvas id="chart"></canvas>
+            </div>
+            <input id="searchAdmin" placeholder="Search books...">
+            <input id="filterDept" placeholder="Filter by dept">
+
+            <!-- ADD -->
+            <div id="add" class="section">
+                <h2>Add Book</h2>
+
+                <div class="form">
+                    <input id="title" placeholder="Title">
+                    <input id="author" placeholder="Author">
+                    <input id="dept" placeholder="Department">
+                    <input id="qty" type="number" placeholder="Quantity">
+                    <button onclick="addBook()">Add Book</button>
+                </div>
+
+                <div id="books" class="grid"></div>
+            </div>
+
+            <!-- REQUESTS -->
+            <div id="requests" class="section" style="display:none">
+                <h2>Requests</h2>
+                <div id="requestList" class="grid"></div>
+            </div>
+
+            <!-- ISSUED -->
+            <div id="issued" class="section" style="display:none">
+                <h2>Issued Books</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Book</th>
+                            <th>Name</th>
+                            <th>Roll</th>
+                            <th>Dept</th>
+                        </tr>
+                    </thead>
+                    <tbody id="issuedTable"></tbody>
+                </table>
+            </div>
+            <!-- STUDENTS -->
+            <div id="students" class="section" style="display:none">
+                <h2>👥 Students Overview</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Roll</th>
+                            <th>Dept</th>
+                            <th>Books Taken</th>
+                            <th>Returned</th>
+                        </tr>
+                    </thead>
+                    <tbody id="studentTable"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+    <!-- ✏️ EDIT MODAL -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>Edit Book</h2>
+
+            <input id="editTitle" placeholder="Title">
+            <input id="editAuthor" placeholder="Author">
+            <input id="editDept" placeholder="Department">
+            <input id="editQty" type="number" placeholder="Quantity">
+
+            <div class="modal-actions">
+                <button onclick="updateBook()">Save</button>
+                <button onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <script src="admin.js"></script>
+</body>
+
+</html>
